@@ -9,7 +9,8 @@
      class Resident extends User{
 
         protected $fillable = [
-            'residency_number','residency_code','document'
+            'residency_number','residency_code','document',
+            'name', 'email', 'password'
         ];
 
     }

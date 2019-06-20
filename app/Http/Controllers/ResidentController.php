@@ -30,6 +30,27 @@ class ResidentController extends \App\Http\Controllers\Controller
         return ['status'=> true];
     }
 
+   /* public function store(Request $request){
+        $residentData = $request->all();
+        $this->resident->create($residentData);
+        
+    }*/
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            
+    
+        ]);
+
+        $data = Resident::create($request->all());
+
+        return response()->json([
+            'message' => 'Data Successfully Stored!',
+            'data' => $data
+        ]);
+    }
 
 
 }
